@@ -1,2 +1,10 @@
 pyarrow
 pandas
+plotly
+dash
+requests-html
+requests
+peewee
+black
+bandit
+mypy
