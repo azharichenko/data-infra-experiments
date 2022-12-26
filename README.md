@@ -1,1 +1,1 @@
-# data-infra-experiments
+# Data Science Projects Monorepo

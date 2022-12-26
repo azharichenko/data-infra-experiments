@@ -1,0 +1,20 @@
+[GLOBAL]
+pants_version = "2.14.0"
+backend_packages = [
+  "pants.backend.python",
+  "pants.backend.python.lint.docformatter",
+  "pants.backend.python.lint.black",
+  "pants.backend.python.lint.flake8",
+  "pants.backend.python.lint.isort",
+  "pants.backend.python.typecheck.mypy",
+]
+
+[source]
+root_patterns = ["/"]
+
+[anonymous-telemetry]
+enabled = false
+
+[python]
+enable_resolves = true
+resolves = { python-default = "python-default.lock"}
