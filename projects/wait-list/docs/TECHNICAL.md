@@ -1,0 +1,24 @@
+# Technical
+
+- [x] Optimized scraping tool
+  - Rip course API from PittAPI and modify from our need
+- [x] Setting up
+  - Initial Scrape
+  - Have term separation (more of a storing problem)
+  - Inital test runs
+  - All subjects (with a few exclusions for obvious reason, PittAPI basically has the list)
+  - How to account for the creation and deletion of classes (cough cough freshman)
+  - Updating details (instructors is the issue, maybe keep track?)
+- [ ] Distributed computing problem
+  - One scraper vs many!
+  - Docker? App Engine?
+  - Obviously using async code for requests
+  - Maybe just saving the webpage straight up?
+    - Batch processing
+- [ ] Storing and Schema
+  - NoSQL and SQL
+  - How to deal with millions of entrys
+    - Elasticsearch or just some kind of Database
+- [ ] Analyzing?
+  - Spark/hadoop?
+  - Kibana?
