@@ -1,18 +1,11 @@
 import logging
 from logging import info
-from typing import Dict, Tuple
 from pathlib import Path
+from typing import Dict, Tuple
 
-from requests_html import AsyncHTMLSession, HTMLSession, Element
-from peewee import (
-    ForeignKeyField,
-    SqliteDatabase,
-    Model,
-    CharField,
-    FloatField,
-    AutoField,
-    Check,
-)
+from peewee import (AutoField, CharField, Check, FloatField, ForeignKeyField,
+                    Model, SqliteDatabase)
+from requests_html import AsyncHTMLSession, Element, HTMLSession
 
 BASE_URL = "https://en.wikipedia.org"
 HEAD_BASE_URL = "https://en.wikipedia.org/wiki/Lists_of_twin_towns_and_sister_cities"
@@ -36,10 +29,14 @@ class Cities(BaseModel):
 
 # TODO: Add unique clause for name and country
 
+
 class Twinning(BaseModel):
     fid = AutoField()
-    cid1 = ForeignKeyField(Cities, backref="city") #, constraints=[Check("cid1 < cid2")]
+    cid1 = ForeignKeyField(
+        Cities, backref="city"
+    )  # , constraints=[Check("cid1 < cid2")]
     cid2 = ForeignKeyField(Cities, backref="city")
+
 
 with database:
     database.create_tables([Cities, Twinning])
@@ -103,10 +100,7 @@ def crawl_webpage(resp: Element) -> None:
         if full_name not in city_id_map:
             with database.atomic():
                 city = Cities.create(
-                    name=city_tag.text,
-                    country=country,
-                    lat=lat,
-                    lon=lon
+                    name=city_tag.text, country=country, lat=lat, lon=lon
                 )
 
             city_id_map[full_name] = city.cid
@@ -131,10 +125,7 @@ def crawl_webpage(resp: Element) -> None:
 
                 with database.atomic():
                     city = Cities.create(
-                        name=sister_city_tag.text,
-                        country=country,
-                        lat=lat,
-                        lon=lon
+                        name=sister_city_tag.text, country=country, lat=lat, lon=lon
                     )
 
                 with database.atomic():
@@ -146,13 +137,12 @@ def crawl_webpage(resp: Element) -> None:
                 city_id_map[sister_city_tag.text] = city.cid
 
 
-
 def create_sister_cities_dataset() -> None:
     resp = session.get(HEAD_BASE_URL)
     continent_urls = [
-                         fetch_url(BASE_URL + continent_tag.attrs["href"])
-                         for continent_tag in resp.html.find("div.mw-parser-output > ul > li > a")
-                     ][2:3]
+        fetch_url(BASE_URL + continent_tag.attrs["href"])
+        for continent_tag in resp.html.find("div.mw-parser-output > ul > li > a")
+    ][2:3]
     print(continent_urls)
     for resp in asession.run(*continent_urls):
         crawl_webpage(resp)

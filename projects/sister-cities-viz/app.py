@@ -2,10 +2,10 @@
 # visit http://127.0.0.1:8050/ in your web browser.
 
 import dash
-from dash import dcc, html
-import plotly.graph_objects as go
-import plotly.express as px
 import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+from dash import dcc, html
 
 app = dash.Dash(__name__)
 

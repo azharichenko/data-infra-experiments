@@ -1,20 +1,12 @@
 from enum import unique
 from pathlib import Path
 
-from peewee import (
-    IntegrityError,
-    PrimaryKeyField,
-    SqliteDatabase,
-    Model,
-    AutoField,
-    CharField,
-    DateTimeField,
-    FloatField,
-    ForeignKeyField,
-    IntegerField,
-)
-
-from simulation.types import Game as GameTuple, GameOdds as GameOddsTuple, Team
+from peewee import (AutoField, CharField, DateTimeField, FloatField,
+                    ForeignKeyField, IntegerField, IntegrityError, Model,
+                    PrimaryKeyField, SqliteDatabase)
+from simulation.types import Game as GameTuple
+from simulation.types import GameOdds as GameOddsTuple
+from simulation.types import Team
 
 database_file = Path.cwd() / "data.sqlite"
 database = SqliteDatabase(database_file)

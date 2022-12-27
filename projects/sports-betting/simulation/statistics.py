@@ -1,6 +1,5 @@
-"""
-This module is for calculating the statistics for strategies
-including but not limited too
+"""This module is for calculating the statistics for strategies including but
+not limited too.
 
 - the risk reward spread
 - plotting performance over time

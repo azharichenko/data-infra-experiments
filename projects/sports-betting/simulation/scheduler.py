@@ -2,16 +2,16 @@ import sched
 import time
 from typing import Type
 
+from simulation.sportsbook import fetch_todays_games_odds
 from simulation.statistics import calculate_payout
 from simulation.strategies import discover_strategies
-from simulation.sportsbook import fetch_todays_games_odds
 from simulation.strategy import BaseStrategy
 
 s = sched.scheduler(time.time, time.sleep)
 
 
 def compile_game_day_odds() -> None:
-    """Fetch daily game odds and insert into database"""
+    """Fetch daily game odds and insert into database."""
     games = fetch_todays_games_odds()
     s.enter(delay=0, priority=0, action=execute_strategies)
 

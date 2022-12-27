@@ -3,7 +3,6 @@ from argparse import ArgumentParser
 from simulation.models import create_tables
 from simulation.scheduler import run_event_loop
 
-
 # TODO: Create command for strategy registration
 # TODO: Create command for backtesting new strategies
 # TODO: Create command for database initalization/clean/refresh

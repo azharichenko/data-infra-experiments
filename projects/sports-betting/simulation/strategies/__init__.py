@@ -1,5 +1,5 @@
-from inspect import isclass
 from importlib import import_module
+from inspect import isclass
 from pkgutil import iter_modules
 from typing import List
 

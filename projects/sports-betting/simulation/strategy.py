@@ -2,7 +2,7 @@ from abc import ABC, abstractclassmethod, abstractmethod
 from typing import List
 
 from simulation.models import Strategy
-from simulation.types import Game, Bet
+from simulation.types import Bet, Game
 
 
 class BaseStrategy(ABC):

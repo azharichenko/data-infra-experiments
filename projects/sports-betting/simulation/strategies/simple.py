@@ -1,8 +1,8 @@
-from typing import Optional, List
-from simulation.statistics import calculate_payout, calculate_demical_odds
+from typing import List, Optional
 
+from simulation.statistics import calculate_demical_odds, calculate_payout
 from simulation.strategy import BaseStrategy
-from simulation.types import Game, Bet
+from simulation.types import Bet, Game
 
 
 class HomeTeamWinsMoneyLine(BaseStrategy):
@@ -63,7 +63,6 @@ class HomeWinWithOpposingHedgeRegularTime(BaseStrategy):
             )
             for bet_offer in game.game_odds.regular_time
         ]
-
 
 
 # class HomeWinWithOpposingHedgeMoneyLine(BaseStrategy):

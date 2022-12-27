@@ -1,10 +1,10 @@
-from datetime import timedelta, datetime
+from datetime import datetime, timedelta
 from typing import Dict, Iterable, List, Tuple
 
 import requests
 from simulation.models import insert_nhl_game
-
-from simulation.types import Bet, GameOutcome, BetType, Team, BetOffer, Game, GameOdds
+from simulation.types import (Bet, BetOffer, BetType, Game, GameOdds,
+                              GameOutcome, Team)
 
 # TODO: Renames these for the love of god
 URL = "https://pa.betrivers.com/api/service/sportsbook/offering/listview/events?pageNr=1&cageCode=268&groupId=1000093657&type=prematch"
@@ -20,7 +20,7 @@ bets = {
 
 
 def is_game_today(game_start_dt: datetime) -> bool:
-    """Given game start time calculate whether the game is today"""
+    """Given game start time calculate whether the game is today."""
     game_date = game_start_dt.date()
     current_date = datetime.now().date()
     return game_date == current_date
@@ -61,8 +61,8 @@ def parse_game_odds(game_odds: Dict) -> GameOdds:
 
 
 def fetch_todays_games_odds() -> List[Game]:
-    """Fetch games and the bet offers available today
-    Only applies to games that have not started yet"""
+    """Fetch games and the bet offers available today Only applies to games
+    that have not started yet."""
     games: List[Game] = []
 
     for game_id, participants, game_dt in fetch_rivers_game_id():
