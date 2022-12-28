@@ -17,4 +17,7 @@ enabled = false
 
 [python]
 enable_resolves = true
-resolves = { python-default = "python-default.lock"}
+interpreter_constraints = ["CPython>=3.9"]
+
+[python.resolves]
+python-default = "python_default.lock" 

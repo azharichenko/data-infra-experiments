@@ -1,1 +1,1 @@
-python_requirements(name="reqs")
+pipenv_requirements(name="pipenv")

@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+opencv-python = "*"
+opencv-contrib-python = "*"
+
+[dev-packages]
+bandit = "*"
+mypy = "*"
+black = "*"
+
+[requires]
+python_version = "3.9"
