@@ -14,11 +14,11 @@ date = data[0][:-1]
 exercise = ""
 
 for i, point in enumerate(data[2:]):
-    if point == '\n':
-        exercise += '|'
+    if point == "\n":
+        exercise += "|"
         continue
     else:
-        if point[-1] == '\n':
+        if point[-1] == "\n":
             exercise += point[:-1]
         else:
             exercise += point
@@ -26,10 +26,7 @@ for i, point in enumerate(data[2:]):
         if data[2 + i + 1] != "\n":
             exercise += ";"
 
-entry = {
-    "date": date ,
-    "exercise": exercise
-}
+entry = {"date": date, "exercise": exercise}
 pprint(entry)
 
 with open("data.json", "a") as f:
