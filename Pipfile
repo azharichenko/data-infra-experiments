@@ -22,6 +22,8 @@ prefect = "*"
 pyarrow = "==10.0.1"
 requests = "*"
 requests-html = "*"
+polars = "*"
+datafusion = "*"
 
 [dev-packages]
 
