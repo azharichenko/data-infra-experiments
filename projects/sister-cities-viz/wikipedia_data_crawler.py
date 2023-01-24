@@ -2,7 +2,11 @@ from typing import List, Tuple
 
 import click
 import pyarrow as pa
+import pyarrow.parquet as pq
+import pyarrow.dataset as ds
 from requests_html import AsyncHTMLSession, Element, HTMLSession
+
+from common.catalog.filesystem import get_data_directory
 
 BASE_URL = "https://en.wikipedia.org"
 HEAD_BASE_URL = "https://en.wikipedia.org/wiki/Lists_of_twin_towns_and_sister_cities"
@@ -136,7 +140,12 @@ def collect_raw_wikipedia_pages() -> List[pa.RecordBatch]:
 def main():
     batches = collect_raw_wikipedia_pages()
     table = pa.Table.from_batches(batches)
-    print(table)
+    print("reached")
+    ds.write_dataset(
+        table,
+        get_data_directory() / "sister_cities" / "raw_html_data",
+        format="parquet",
+    )
 
 
 if __name__ == "__main__":

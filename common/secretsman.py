@@ -6,8 +6,6 @@ from typing import Any, Dict, Optional
 
 import click
 import pandas as pd
-import pyarrow as pa
-import pyarrow.parquet as pq
 import pyarrow.dataset as ds
 import polars as pl
 
