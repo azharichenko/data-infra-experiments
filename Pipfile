@@ -4,28 +4,22 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-avro = "*"
 click = "*"
 bandit = "*"
 black = "*"
 dash = "*"
 deltalake = "*"
-google-api-python-client = "*"
 isort = "*"
 jinja2 = "*"
 mkdocs = "*"
 mypy = "*"
-pandas = "*"
-peewee = "*"
 plotly = "*"
-prefect = "*"
-pyarrow = "==10.0.1"
-requests = "*"
-requests-html = "*"
+pyarrow = "*"
 polars = "*"
 datafusion = "*"
+requests = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.10"
+python_version = "3.11"

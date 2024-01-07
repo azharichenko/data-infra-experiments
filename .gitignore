@@ -135,6 +135,3 @@ dmypy.json
 
 # Project Specific
 data/*
-# moon
-.moon/cache
-.moon/docker

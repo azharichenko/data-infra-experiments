@@ -1,0 +1,16 @@
+[GLOBAL]
+pants_version = "2.18.1"
+
+backend_packages = [
+    "pants.backend.build_files.fmt.black",
+    "pants.backend.codegen.protobuf.python",
+    "pants.backend.python",
+    "pants.backend.python.lint.black",
+    "pants.backend.python.lint.isort",
+    "pants.backend.python.lint.pylint",
+    "pants.backend.tools.preamble",
+]
+
+[python]
+enable_resolves = true
+interpreter_constraints = ['==3.11.*']
